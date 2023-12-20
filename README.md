@@ -21,3 +21,7 @@ After installing the dependencies, you just need to run the script `build.sh `an
 ```
 gcc -Werror -Wall -Os src/*.c `pkg-config --libs --cflags mm-glib` -o mportlink
 ```
+
+## To-Do
+
+Currently, the utility is linked to the ModemManager server, through which the connected modems are identified. It is planned to disconnect from this server, as there is a problem with the capture of the device and the unavailability of using Asterisk.

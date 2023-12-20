@@ -1,7 +1,6 @@
 [Unit]
 Description=Modem Port Link
-After=polkit.service
-Requires=polkit.service
+After=ModemManager.service
 
 [Service]
 ExecStart=/usr/bin/mportlink
