@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mportlink launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/mportlink",
+            "args": [
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

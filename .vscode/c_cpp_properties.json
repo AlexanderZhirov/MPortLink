@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "headers",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/libmm-glib",
+                "/usr/include/glib-2.0",
+                "/usr/include/ModemManager",
+                "/usr/include/sys"
+            ]
+        }
+    ],
+    "version": 4
+}

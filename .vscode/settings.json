@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "cstdlib": "c",
+        "mm-linker.h": "c",
+        "mm.h": "c",
+        "syslog.h": "c",
+        "libmm-glib.h": "c",
+        "typeinfo": "c",
+        "bit": "c",
+        "cmath": "c",
+        "compare": "c",
+        "concepts": "c",
+        "cstdarg": "c",
+        "cstdio": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "new": "c",
+        "*.tcc": "c",
+        "cstdint": "c",
+        "fcntl.h": "c",
+        "file.h": "c"
+    },
+    "cmake.configureOnOpen": false
+}
