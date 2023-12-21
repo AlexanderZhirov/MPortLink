@@ -50,6 +50,8 @@ int main()
 
     syslog(LOG_NOTICE, "main: starting the %s daemon", MPL);
 
+    mpl_create_dongle_dir();
+
     GError *error = NULL;
     GDBusConnection *connection = NULL;
 

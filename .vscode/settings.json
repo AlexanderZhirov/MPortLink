@@ -18,7 +18,8 @@
         "*.tcc": "c",
         "cstdint": "c",
         "fcntl.h": "c",
-        "file.h": "c"
+        "file.h": "c",
+        "dir.h": "c"
     },
     "cmake.configureOnOpen": false
 }

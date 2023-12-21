@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 
 #define DEV_PATH "/dev/"
+#define DONGLE_PATH "/dev/dongle/"
 
 typedef struct
 {
@@ -15,6 +16,25 @@ typedef struct
     MMModemPortInfo *ports;
     guint n_ports;
 } MPLmodem;
+
+void mpl_create_dongle_dir()
+{
+    struct stat st;
+
+    if (stat(DONGLE_PATH, &st) == 0)
+    {
+        if (!S_ISDIR(st.st_mode))
+        {
+            syslog(LOG_ERR, "mpl_create_dongle_dir: %s exists and is not a directory", DONGLE_PATH);
+            raise(SIGINT);
+        }
+    }
+    else if (mkdir(DONGLE_PATH, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH) == -1)
+    {
+        syslog(LOG_ERR, "mpl_create_dongle_dir: unable to create a directory %s", DONGLE_PATH);
+        raise(SIGINT);
+    }
+}
 
 MPLmodem *mpl_get_new_modem()
 {
@@ -108,7 +128,7 @@ char *mpl_get_dst_path(guint index, const gchar *imei)
 
     sprintf(id, "-%d", index);
 
-    guint dst_path_size = strlen(DEV_PATH) + strlen(imei) + size_id;
+    guint dst_path_size = strlen(DONGLE_PATH) + strlen(imei) + size_id;
     dst_path = (char *)calloc(dst_path_size + 1, sizeof(char));
 
     if (dst_path == NULL)
@@ -117,7 +137,7 @@ char *mpl_get_dst_path(guint index, const gchar *imei)
         raise(SIGINT);
     }
 
-    strcpy(dst_path, DEV_PATH);
+    strcpy(dst_path, DONGLE_PATH);
     strcat(dst_path, imei);
     strcat(dst_path, id);
 
